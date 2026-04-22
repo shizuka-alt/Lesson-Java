@@ -1,0 +1,251 @@
+第2章　値と演算
+
+1．
+package jp.co.aforce.sample.training20260422;
+
+public class DoubleInteger {
+	
+	public static void main(String[] args) {
+		int num =5;
+		System.out.println("5×2="+num*2);
+	}
+	
+}
+
+2．
+package jp.co.aforce.sample.training20260422;
+
+public class GreaterThenTen {
+
+	public static void main(String[] args) {
+		int num = 12;
+		System.out.println(num > 10);
+		
+	}
+	
+}
+
+3．
+package jp.co.aforce.sample.training20260422;
+
+public class EvenOrOdd {
+
+	public static void main(String[] args) {
+		int num  = 7;
+		if (num % 2 == 0) {
+			System.out.println("偶数");
+		
+		} else {
+			System.out.println("奇数");
+		}
+		
+	}
+	
+}
+
+4．
+package jp.co.aforce.sample.training20260422;
+
+public class traning04 {
+
+	public static void main(String[] args) {
+		
+		double num = 4.5;
+		System.out.println(num / 2);
+	}
+	
+}
+
+5．
+package jp.co.aforce.sample.training20260422;
+
+public class training05 {
+
+	public static void main(String[] args) {
+		double num = 7.8;
+		int integerPart = (int)num;
+		double decimalPart = num - integerPart;
+		
+		System.out.println("整数部分："+ integerPart);
+		System.out.println("小数部分："+ decimalPart);
+	}
+}
+
+6．
+package jp.co.aforce.sample.training20260422;
+
+public class training06 {
+
+	public static void main(String[] args) {
+		double num = 3.2;
+		System.out.println(num * 10);
+		
+	}
+}
+
+7．
+package jp.co.aforce.sample.training20260422;
+
+public class training07 {
+
+	public static void main(String[] args) {
+		int num = 0;
+		if (num == 0) {
+			System.out.println("値は0です");
+		} else {
+			System.out.println("値が0以外です");
+		}
+		
+	}
+	
+}
+
+8．
+package jp.co.aforce.sample.training20260422;
+
+public class training08 {
+
+	public static void main(String[] args) {
+		int num = -5;
+		
+		if (num <= -1) {
+			System.out.println("値は負の数です");
+		} else {
+			System.out.println("値は負の数ではありません");
+		}
+		
+	}
+	
+}
+
+9．
+package jp.co.aforce.sample.training20260422;
+
+public class training09 {
+
+	public static void main(String[] args) {
+		int num = 15;
+		if (num % 5 ==0) {
+			System.out.println("値は5の倍数です");
+		} else {
+			System.out.println("値は5の倍数ではありません");
+		}
+		
+	}
+}
+
+10．
+package jp.co.aforce.sample.training20260422;
+
+public class training10 {
+
+	public static void main(String[] args) {
+		int num1 = 8;
+		int num2 = 3;
+		
+		System.out.println(num1 + num2);
+		
+	}
+	
+}
+
+11．
+package jp.co.aforce.sample.training20260422;
+
+public class training11 {
+
+	public static void main(String[] args) {
+		int num1 = 10;
+		int num2 = 4;
+		
+		System.out.println(num1 - num2);
+		
+	}
+}
+
+12．
+package jp.co.aforce.sample.training20260422;
+
+public class training12 {
+
+	public static void main(String[] args) {
+		int num1 = 10;
+		int num2 = 7;
+		
+		System.out.println(num1 * num2);
+		
+	}
+}
+
+13．
+package jp.co.aforce.sample.training20260422;
+
+public class training13 {
+
+	public static void main(String[] args) {
+		
+		String name = "しずか";
+		int age = 23;
+		age = age + 1;
+		
+		System.out.println(name + "は次の誕生日で" + age +"歳です。");
+		
+	}
+}
+
+14．
+package jp.co.aforce.sample.training20260422;
+
+public class training14 {
+
+	public static void main(String[] args) {
+		int num1 = 8;
+		int num2 = 3;
+		
+		System.out.println(num1 + num2);
+		System.out.println(num1 - num2);
+		System.out.println(num1 * num2);
+		System.out.println(num1 / num2);
+		System.out.println(num1 % num2);
+		
+	}
+}
+
+15．
+package jp.co.aforce.sample.training20260422;
+
+public class training15 {
+
+	public static void main(String[] args) {
+		int test1 = 75;
+		int test2 = 88;
+		int test3 = 92;
+		
+		System.out.println((test1 + test2 + test3)/3);
+//	int÷intは小数点以下切り捨て	
+	}
+	
+}
+
+16．
+package jp.co.aforce.sample.training20260422;
+
+public class training16 {
+
+	public static void main(String[] args) {
+		int price = 12000;
+		
+		int discountedPrice = (int)(price * 0.7);
+		
+		System.out.println(12000 - discountedPrice);
+		
+	}
+}
+
+17．false
+18．true
+19．false
+20．割引対象です
+
+
+
