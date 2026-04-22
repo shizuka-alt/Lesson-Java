@@ -1,0 +1,267 @@
+第6章　コレクション
+
+コレクションとは
+問1.
+package jp.co.aforce.sample.training20260422;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class training6_1_1 {
+
+	public static void main(String[] args) {
+		
+		List<Integer> numList = new ArrayList<Integer>();
+
+		numList.add(10);
+		numList.add(20);
+		numList.add(30);
+		numList.add(40);
+		numList.add(50);
+		
+		
+		System.out.println(numList);
+		
+		Collections.reverse(numList);
+		System.out.println(numList);
+	}
+	
+}
+
+問2．
+package jp.co.aforce.sample.training20260422;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class training6_1_2 {
+
+	public static void main(String[] args) {
+		
+		List<Integer> numList = new ArrayList<Integer>();
+
+		numList.add(10);
+		numList.add(20);
+		numList.add(30);
+		numList.add(40);
+		numList.add(50);
+		
+		System.out.println("変換前："+ numList);
+		
+		//ArrayListをHashSetに変換(ここで重複が消える)
+		Set<Integer> numSet = new HashSet<>(numList);
+		
+		System.out.println("変換後："+ numSet);
+	}
+}
+
+リスト
+問1．
+package jp.co.aforce.sample.training20260422;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class training6_2_1 {
+
+	public static void main(String[] args) {
+		
+		List<Integer> numList = new ArrayList<Integer>();
+		
+		numList.add(10);
+		numList.add(20);
+		numList.add(30);
+		numList.add(40);
+		numList.add(50);
+		
+		//探したい値を変数に設定する
+		int searchNum = 30;
+		
+		if (numList.contains(searchNum)) {
+            System.out.println(searchNum + " はリストに含まれています。");
+        } else {
+            System.out.println(searchNum + " はリストに含まれていません。");
+        }
+	}
+	
+}
+
+問2．
+package jp.co.aforce.sample.training20260422;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class training6_2_2 {
+
+	public static void main(String[] args) {
+		
+		List<String> wordList = new ArrayList<String>();
+		
+		wordList.add("Apple");
+		wordList.add("Table");
+		wordList.add("Book");
+		wordList.add("road");
+		wordList.add("Banana");
+		
+		Collections.sort(wordList);
+		
+		System.out.println(wordList);
+	}
+	
+}
+
+問3．
+package jp.co.aforce.sample.training20260422;
+
+import java.util.LinkedList;
+
+public class training6_2_3 {
+
+	public static void main(String[] args) {
+		
+		 LinkedList<String> wordList = new LinkedList<>();
+		 
+		 wordList.add("Apple");
+	     wordList.add("Banana");
+	     wordList.add("Cherry");
+	     wordList.add("Dragonfruit");
+	     
+	     //最初と最後の要素を取得して表示する。
+	     String first = wordList.getFirst();
+	     String last = wordList.getLast();
+	     
+	     System.out.println("最初の要素：" + first);
+	     System.out.println("最後の要素：" + last);
+		 
+	}
+	
+}
+
+ハッシュとは
+問1．
+package jp.co.aforce.sample.training20260422;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class training6_3_1 {
+
+	public static void main(String[] args) {
+		
+		Map<String, Integer> keyMap = new HashMap<>();
+
+		keyMap.put("key1", 100);
+		keyMap.put("key2", 156);
+		keyMap.put("key3", 386);
+		
+		
+		//すべてのキーと値を１つずつ取り出して表示
+		keyMap.forEach((key, value) -> {
+		    System.out.println(key + " の値は " + value + " です");
+		});
+		
+	}
+	
+}
+
+問2．
+package jp.co.aforce.sample.training20260422;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class training6_3_2 {
+
+	public static void main(String[] args) {
+		
+		Map<String, Integer> keyMap = new HashMap<>();
+
+		keyMap.put("key1", 100);
+		keyMap.put("key2", 156);
+		keyMap.put("key3", 386);
+		
+		int value = keyMap.get("key2");
+		System.out.println("key2の値は"+ value);
+		
+	}
+	
+}
+
+問3．
+package jp.co.aforce.sample.training20260422;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class training6_3_3 {
+
+	public static void main(String[] args) {
+		
+		Set<String> techList = new HashSet<String>();
+
+		techList.add("Java");
+		techList.add("Python");
+		techList.add("Java");
+		techList.add("Ruby");
+		techList.add("Python");
+		
+		System.out.println(techList);
+		
+	}
+	
+}
+
+配列とリスト
+問1．
+package jp.co.aforce.sample.training20260422;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class training6_4_1 {
+
+	public static void main(String[] args) {
+		Integer[] array = {10, 20, 30, 40, 50};
+		
+		List<Integer> numList = new ArrayList<>(Arrays.asList(array));
+		
+		
+		 System.out.println(numList);
+	}
+	
+}
+
+問2．
+package jp.co.aforce.sample.training20260422;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class training6_4_2 {
+
+	
+	public static void main(String[] args) {
+		
+		List<String> wordList = new ArrayList<>();
+        wordList.add("Apple");
+        wordList.add("Banana");
+        wordList.add("Cherry");
+        
+        //ArrayListを配列に変換
+        String[] wordArray = wordList.toArray(new String[0]);
+        
+        for (String word : wordArray) {
+            System.out.println(word);
+        }
+	}
+}
+
+
+
+
