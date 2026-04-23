@@ -1,0 +1,453 @@
+第7章　制御構文
+
+●if文
+問1．
+package jp.co.aforce.sample.training20260423;
+
+import java.util.Scanner;
+
+public class CheckNumberList2 {
+
+	public static void main(String[] args) {
+		//インスタンスを生成
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("整数を入力してください:");
+		//数字をnumに入れる
+		int num = sc.nextInt();
+		
+		if (num % 2 == 0) {
+			System.out.println("値は偶数です。");
+		} else {
+			System.out.println("値は奇数です。");
+		}
+		sc.close();
+	}	
+	
+}
+
+問2．
+package jp.co.aforce.sample.training20260423;
+
+import java.util.Scanner;
+
+public class CheckNumberList3 {
+
+	public static void main(String[] args) {
+		//インスタンスを生成
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("数字を入力してください:");
+		//数字をnumに入れる
+		int num = sc.nextInt();
+		
+		if (num == 0) {
+			System.out.println("値は正の数でも負の数でもありません。");
+		} else if (num >= 1) {
+			System.out.println("値は正の数です。");
+		} else if (num <= -1) {
+			System.out.println("値は負の数です。");
+		}
+		sc.close();
+		
+	}
+	
+}
+
+問3．
+package jp.co.aforce.sample.training20260423;
+
+import java.util.Scanner;
+
+public class CheckNumberList4 {
+
+	public static void main(String[] args) {
+		//インスタンスを生成
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("3つの整数を入力してください:");
+		//3つの数字をa,b,cに入れる
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		int c = sc.nextInt();
+		
+		if (a + b > c && a + c > b && b + c > a) {
+			System.out.println("三角形として有効です。");
+		} else {
+			System.out.println("三角形として有効ではありません。");
+		}
+		sc.close();
+		
+	}
+	
+}
+
+問4．
+package jp.co.aforce.sample.training20260423;
+
+import java.util.Scanner;
+
+public class CheckNumberList5 {
+
+	public static void main(String[] args) {
+		//インスタンスを生成
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("年齢を入力してください:");
+		//年齢をageに入力
+		int age = sc.nextInt();
+		
+		if (age <= 12) {
+			System.out.println("無料です。");
+		} else if (age >= 13 && age <=59) {
+			System.out.println("1000円です。");
+		} else if (age >= 60) {
+			System.out.println("500円です。");
+		}
+		sc.close();
+		
+	}
+	
+}
+
+問5．
+B. numberは5ではありません
+
+●switch文
+問1．
+C. Three → Other
+
+問2．
+A. 花が咲く季節です
+
+問3．
+基礎④-1途中まで
+
+●while文
+問1．
+package jp.co.aforce.sample.training20260423;
+
+public class WhileTraining01 {
+
+	public static void main(String[] args) {
+		int i = 0;
+		while (i <= 10) {
+			System.out.println(i);
+			i++;
+		}
+		
+	}
+	
+}
+
+問2．
+package jp.co.aforce.sample.training20260423;
+
+public class WhileTraining02 {
+
+	public static void main(String[] args) {
+		int i = 1;
+		int sum = 0;
+		while (i <= 100) {
+			sum = sum + i;
+			i++;
+		}
+		
+		System.out.println(sum);
+		
+	}
+	
+}
+
+問3．
+package jp.co.aforce.sample.training20260423;
+
+import java.util.Scanner;
+
+public class WhileTraining03 {
+
+	public static void main(String[] args) {
+		//インスタンスを生成
+		Scanner sc = new Scanner(System.in);
+		int sum = 0; //合計をためる変数
+		
+		System.out.println("整数を入力してください:");
+		
+		//整数をnumに入力
+		int num = sc.nextInt();
+		
+		//0以外の間はずっと繰り返す
+		while (num != 0) {
+			sum += num; //sum = sum + num
+			
+			System.out.println("次の整数を入力してください:");
+			num = sc.nextInt(); //ループの中でもう一度入力させる
+		}
+			
+			
+		System.out.println(sum);
+		sc.close();
+		
+	}
+	
+}
+
+●do-while文【とりあえず1回実行してみて、その後に条件を評価する】
+【条件が偽でも、必ず1回は動く】
+問1．
+package jp.co.aforce.sample.training20260423;
+
+public class DoWhileTraining01 {
+
+	public static void main(String[] args) {
+		int i = 1;
+		
+		do {
+			System.out.println(i); //とりあえず1回実行される
+			
+			i++; //次の数字に進める
+		} while (i <= 10);
+		
+	}
+	
+}
+
+問2．
+package jp.co.aforce.sample.training20260423;
+
+public class DoWhileTraining02 {
+
+	public static void main(String[] args) {
+		int i = 1;
+		int sum = 0;
+		
+		do {
+			sum = sum + i;
+			i++;
+		} while (i <= 100);
+		
+		System.out.println(sum);
+		
+	}
+	
+}
+
+問3．
+package jp.co.aforce.sample.training20260423;
+
+import java.util.Scanner;
+
+public class DoWhileTraining03 {
+
+	public static void main(String[] args) {
+		//インスタンスを生成
+		Scanner sc = new Scanner(System.in);
+		int sum = 0; //合計をためる変数
+		int num; //入力された値を保持する変数
+		
+		do {
+			System.out.println("整数を入力してください(0で終了):");
+			num = sc.nextInt(); //ここで入力を受け取る(とりあえず1回目を実行)
+			
+			sum += num; //入力された値を合計に足す
+			
+		} while (num != 0); //0でなければ、もう一度doの中身を実行する
+		
+		System.out.println("合計:" + sum);
+		
+		sc.close();
+		
+	}
+	
+}
+
+●for文
+問1．
+package jp.co.aforce.sample.training20260423;
+
+public class ForTraining01 {
+
+	public static void main(String[] args) {
+		for (int i =0;i <= 10; i++) {
+			System.out.println(i);
+		}
+		
+		
+	}
+	
+}
+
+問2．
+package jp.co.aforce.sample.training20260423;
+
+public class ForTraining02 {
+
+	public static void main(String[] args) {
+		int sum = 0;
+		
+		for (int i = 0;i <= 100;i++) {
+			
+			sum = sum + i;
+			
+		}
+		
+		System.out.println(sum);
+		
+	}
+	
+}
+
+問3．
+package jp.co.aforce.sample.training20260423;
+
+public class ForTraining03 {
+
+	public static void main(String[] args) {
+		//表示するのはn2だけ、n1は計算のためにだけいる。
+		int n1 = 0; //2つ前の数
+		int n2 = 1; //1つ前の数
+		
+		System.out.println("フィボナッチ数列の最初の10項:");
+		
+		for (int i = 1; i <= 10; i++) {
+			System.out.println(n2 + ""); //現在の項(n2)を表示
+			
+			int next = n1 + n2; //1+1=2とか
+			
+			//次のループのために、数字をスライドさせる
+			n1 = n2; //「1つ前」を「2つ前」へ
+			n2 = next; //「次の数」を「1つ前」へ
+		}
+		
+	}
+	
+}
+
+●拡張for文
+問1．
+package jp.co.aforce.sample.training20260423;
+
+public class ForEachTraining01 {
+
+	public static void main(String[] args) {
+		int[] numbers = {0, 1, 2};
+		for (int n: numbers) {
+			System.out.println(n);
+		}
+		
+	}
+	
+}
+
+問2．
+package jp.co.aforce.sample.training20260423;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ForEachTraining02 {
+
+	public static void main(String[] args) {
+		List<String> wordList = new ArrayList<String>();
+		
+		wordList.add("apple");
+		wordList.add("desk");
+		wordList.add("book");
+		wordList.add("window");
+		wordList.add("table");
+		
+		//wordListからString型のwordを取り出す。
+		for (String word : wordList) {
+			System.out.println(word);
+		}
+		
+	}
+	
+}
+
+問3．
+package jp.co.aforce.sample.training20260423;
+
+public class ForEachTraining03 {
+
+	public static void main(String[] args) {
+		//配列を作成
+		int[] numbers = {10, 20, 30, 40, 50};
+		
+		int sum = 0;
+		
+		//拡張for文で合計を計算する
+		//numbersから1つずつnに取り出す
+		for (int n : numbers) {
+			sum += n; //取り出した数字をsumに足していく
+		}
+		
+		System.out.println("合計は " + sum + " です。");
+		
+	}
+	
+}
+
+問4．
+package jp.co.aforce.sample.training20260423;
+
+public class ForEachTraining04 {
+
+	public static void main(String[] args) {
+        int[] numbers = {1, 2, 3, 4, 5};					
+        // ここに拡張for文を追加して、配列の要素を出力してください
+        for (int n : numbers) {
+        	System.out.println(n);
+        }
+		
+	}
+	
+}
+
+
+問5．
+package jp.co.aforce.sample.training20260423;
+
+public class ForEachTraining05 {
+
+	public static void main(String[] args) {
+		
+		int[] numbers = {1, 2, 3, 4, 5};					
+        int sum = 0;					
+        // ここに拡張for文を追加して、配列の要素の合計を計算してください					
+        
+        //numbersからint nを取り出す
+        for (int n : numbers) {
+        	sum = sum + n;
+        
+        }
+        System.out.println("合計: " + sum);
+        
+	}
+	
+}
+
+問6．
+package jp.co.aforce.sample.training20260423;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ForEachTraining06 {
+
+	public static void main(String[] args) {
+        List<String> names = new ArrayList<>();				
+        names.add("Alice");				
+        names.add("Bob");				
+        names.add("Charlie");				
+		
+        //拡張for文を追加
+        for (String name : names) {
+            System.out.println(name);
+        }
+	}
+	
+}
+
+基礎④-2途中まで
+
