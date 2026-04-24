@@ -1,0 +1,267 @@
+第9章　クラスの基礎
+
+●クラス
+問1．
+・Person.java
+
+public class Person {
+
+	//名前と年齢のフィールドを持たせる
+	//fillingと同じフィールドで作ることはできない
+	String fillingName;
+	Integer fillingAge; //intでもOK
+	
+	//コンストラクタ
+　　//上のfillingName、fillingAgeとname、ageとを紐づけるため。
+	public Person (String name, Integer age) {
+		this.fillingName = name;
+		this.fillingAge = age;
+	}
+	
+}
+
+・Main.java
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		//インスタンスの生成
+		Person p = new Person("田中", 20);
+		
+		//フィールド値を表示
+		System.out.println("名前：" + p.fillingName);
+		System.out.println("年齢：" + p.fillingAge);
+	}
+	
+}
+
+
+問2．
+・Book.java
+public class Book {
+
+	String title;
+	String author;
+	Integer price;
+	
+	//コンストラクタ。中身をセットするメソッド
+	public Book(String title, String author, Integer price) {
+		
+		this.title = title;
+		this.author = author;
+		this.price = price;
+		
+	}
+	
+	//中身を表示するメソッド
+	public void showInfo() {
+		System.out.println("タイトル：" + title);
+		System.out.println("著者：" + author);
+		System.out.println("価格：" + price + "円");
+	}
+	
+}
+
+・Main.java
+public class Main {
+
+	public static void main(String[] args) {
+		//インスタンスを生成
+		Book myBook = new Book("Java入門","山田太郎",2500);
+		
+		//メソッドを呼び出して情報を表示
+		myBook.showInfo();
+		
+		
+	}
+	
+}
+
+問3．
+・Student.java
+public class Student {
+
+	String name;
+	int[] scores; //int型の配列。ここに成績を入れる。
+	
+	//コンストラクタ
+	public Student(String name, int[] scores) {
+		
+		this.name = name;
+		this.scores = scores;
+		
+	}
+	
+	//平均点を計算して表示するメソッド
+	public void showAverage() {
+		int sum = 0;
+		//配列の中身を全部足す
+		for (int score : scores) {
+			sum += score;
+			
+		}
+	
+		//平均を計算する
+		double average = (double) sum / scores.length;
+		
+		System.out.println(name + "さんの平均点は" + average + "点です。");
+		
+		
+	}
+	
+	
+	
+}
+
+・Main.java
+public class Main {
+
+	public static void main(String[] args) {
+		
+		//成績データの配列を作る
+		int[] tensu = {80, 90, 75};
+		
+		//Studentクラスのインスタンスを生成
+		Student tanaka = new Student01("田中", tensu);
+		
+		//平均点を計算して表示するメソッドを呼び出す
+		tanaka.showAverage();
+		
+	}
+	
+}
+
+
+問4．
+・Employee.java
+public class Employee {
+
+	int id;
+	String name;
+	double salary;
+	
+	//コンストラクタ。中身をセットするメソッド。
+	public Employee(int id, String name, double salary) {
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
+	}
+	
+	//中身を表示するメソッド
+	public void raiseSalary(double percent) {
+		//給与を更新する
+		this.salary = this.salary * (1 + percent / 100);
+		
+		System.out.println(name + "さんの給与が" + percent + "% 昇給しました。");
+		System.out.println("現在の給与：" + this.salary + "円");
+		
+	}
+	
+	
+}
+
+・Main.java
+public class Main04 {
+
+	public static void main(String[] args) {
+		//インスタンスを生成。
+		Employee emp = new Employee(101, "佐藤", 200000);
+		
+		//上のインスタンスを使って、5%昇給させる
+		emp.raiseSalary(5.0);
+		
+		
+	}
+	
+}
+
+問5．
+・Circle.java
+
+public class Circle {
+
+	
+	double radius;
+	
+	//コンストラクタ
+	public Circle(double radius) {
+		this.radius = radius;
+		
+	}
+	
+	//中身を表示するメソッド
+	public void showArea() {
+		double area = radius * radius * Math.PI;
+		
+		System.out.println("半径" + radius + "の円の面積は" + area + "です。");
+		
+	}
+	
+}
+
+・Main.java
+
+public class Main05 {
+
+	public static void main(String[] args) {
+		
+		//オブジェクトを用意
+		Circle myCircle = new Circle(5.0);
+		
+		//myCircle というオブジェクトに対して、
+		//showArea という機能を実行する（適用する）
+		myCircle.showArea();
+		
+		
+	}
+	
+}
+
+
+●インスタンス
+・Dog.java
+
+public class Dog {
+
+	String name;
+	
+	//コンストラクタ
+	public Dog(String name) {
+		this.name = name;
+	
+	}
+	
+	//中身を表示するメソッド
+	public void showName() {
+		
+		System.out.println("名前は" + name + "です。");
+		
+	}
+	
+	
+}
+
+・Main.java
+
+public class Main06 {
+
+	public static void main(String[] args) {
+		
+		//オブジェクトを用意
+		//コンストラクタを使った場合はこっちで代入する。
+		Dog myDog = new Dog("ポチ");
+		
+		//名前を設定
+//		myDog.name = "ポチ";
+		
+		//名前を表示
+		System.out.println("犬の名前は" + myDog.name + "です。");
+		
+	}
+	
+	
+}
+
+途中まで
+
