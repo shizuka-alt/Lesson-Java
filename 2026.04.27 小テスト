@@ -1,0 +1,351 @@
+Java基礎小テスト
+
+②
+2．
+package jp.co.aforce.practice;
+
+public class PracticeTest1 {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Hello World");
+		
+	}
+	
+}
+
+3．
+package jp.co.aforce.practice;
+
+public class PracticeTest1 {
+
+	public static void main(String[] args) {
+		
+		int x = 11;
+		System.out.println("x = " + x);
+		
+	}
+	
+}
+
+4．
+package jp.co.aforce.practice;
+
+public class PracticeTest1 {
+
+	public static void main(String[] args) {
+		
+		int y = 13;
+		int z = 17;
+		System.out.println("y = " + y + " " + "z = " + z);
+		
+	}
+	
+}
+
+5．
+package jp.co.aforce.practice;
+
+public class PracticeTest1 {
+
+	public static void main(String[] args) {
+		
+		int y = 13;
+		int z = 17;
+		System.out.println("y = " + y + " " + "z = " + z);
+		
+		int total = y + z;
+		System.out.println("totalの値:" + total);
+		
+		
+	}
+	
+}
+
+6．
+package jp.co.aforce.practice;
+
+public class PracticeTest1 {
+	
+	public static final int TEST_NUMBER= 6;
+
+	public static void main(String[] args) {
+		
+	}
+	
+}
+
+7．
+package jp.co.aforce.practice;
+
+public class PracticeTest1 {
+	
+	public static final int TEST_NUMBER= 6;
+
+	public static void main(String[] args) {
+		
+		int y = 13;
+		int z = 17;
+		System.out.println("y = " + y + " " + "z = " + z);
+		
+		int total = y + z;
+		System.out.println("totalの値:" + total);
+		
+		int sum = total + TEST_NUMBER;
+		System.out.println("sumの値:" + sum);
+		
+		
+	}
+	
+}
+
+③
+1．
+package jp.co.aforce.practice;
+
+public class PracticeTest2 {
+	
+	public static final double TAX = 0.1;
+	
+	public static void main(String[] args) {
+		
+		
+		System.out.println("TAXの値：" + TAX);
+		
+	}
+
+	
+}
+
+2．
+package jp.co.aforce.practice;
+
+public class PracticeTest2 {
+	
+	public static final double TAX = 0.1;
+	
+	public static void main(String[] args) {
+		
+		
+		System.out.println("TAXの値：" + TAX);
+		
+		int x = 480;
+		double price = x * TAX;
+		System.out.println("税込み価格：" + (int)(x + price) + "円");
+		
+		
+	}
+
+	
+}
+
+3．
+package jp.co.aforce.practice;
+
+public class PracticeTest2 {
+	
+	public static void main(String[] args) {
+		
+		String name = "金井静香";
+		System.out.println(name);
+		
+		
+	}
+
+	
+}
+
+4．
+package jp.co.aforce.practice;
+
+public class PracticeTest2 {
+	
+	public static final double TAX = 0.1;
+	
+	public static void main(String[] args) {
+		
+		
+//		System.out.println("TAXの値：" + TAX);
+//		
+		int x = 480;
+		double price = x * TAX;
+//		System.out.println("税込み価格：" + (int)(x + price) + "円");
+		
+		String a = "この商品の値段は";
+		String b = "円です";
+		System.out.println(a + (int)(x + price) + b);
+		
+		
+	}
+
+	
+}
+
+
+④
+1．
+package jp.co.aforce.practice;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PracticeTest3 {
+
+	public static void main(String[] args) {
+		
+		List<String> shopList = new ArrayList<String>();
+		
+		shopList.add("シャープペンシル");
+		shopList.add("ボールペン");
+		shopList.add("リングノート");
+		shopList.add("クリップ");
+		shopList.add("消しゴム");
+		
+		
+		System.out.println(shopList);
+		
+	}
+	
+}
+
+2．
+package jp.co.aforce.practice;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PracticeTest3 {
+
+	public static void main(String[] args) {
+		
+		List<String> shopList = new ArrayList<String>();
+		
+		shopList.add("シャープペンシル");
+		shopList.add("ボールペン");
+		shopList.add("リングノート");
+		shopList.add("クリップ");
+		shopList.add("消しゴム");
+		
+		
+		System.out.println(shopList.get(1));
+		
+	}
+	
+}
+
+3．
+package jp.co.aforce.practice;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PracticeTest3 {
+
+	public static void main(String[] args) {
+		
+		List<String> nameList = new ArrayList<String>();
+		
+		nameList.add("山田太郎");
+		nameList.add("鈴木花子");
+		nameList.add("佐藤二郎");
+		nameList.add("山田太郎");
+		nameList.add("高橋三郎");
+		
+		System.out.println(nameList);
+		
+	}
+	
+}
+
+5．
+package jp.co.aforce.practice;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PracticeTest3 {
+
+	public static void main(String[] args) {
+		
+		List<String> nameList = new ArrayList<String>();
+		
+		nameList.add("山田太郎");
+		nameList.add("鈴木花子");
+		nameList.add("佐藤二郎");
+		nameList.add("山田太郎");
+		nameList.add("高橋三郎");
+		
+		System.out.println(nameList.get(2));
+		
+	}
+	
+}
+
+6．
+package jp.co.aforce.practice;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class PracticeTest3 {
+
+	public static void main(String[] args) {
+		
+		ArrayList<Integer> list1 = new ArrayList<>();				
+		list1.add(10);				
+		list1.add(15);				
+		list1.add(16);				
+		list1.add(19);				
+						
+		ArrayList<Integer> list2 = new ArrayList<>();				
+		list2.add(11);				
+		list2.add(12);				
+		list2.add(18);				
+		list2.add(20);	
+		
+		list1.addAll(list2);
+		Collections.sort(list1);
+		
+		int i = 0;
+		
+		for (i = 0; i < list1.size(); i++) {
+			Integer num = list1.get(i);
+			System.out.println((i+1) + "番目の数字は：" + num);
+			
+			
+		}
+
+		
+	}
+
+7．
+
+⑤
+1．
+package jp.co.aforce.practice;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PracticeTest4 {
+
+	public static void main(String[] args) {
+		
+		
+		List<String> animalList = new ArrayList<String>();
+		
+		animalList.add("犬");
+		animalList.add("猫");
+		animalList.add("うさぎ");
+		animalList.add("へび");
+		
+		System.out.println(animalList);
+		
+	}
+}
+
+2．
+
+
+
+
