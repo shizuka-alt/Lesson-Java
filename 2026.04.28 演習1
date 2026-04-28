@@ -1,0 +1,403 @@
+第8章 続き
+●ポリモーフィズム
+問1．
+ポリモーフィズムとは、プログラムの拡張性を担保するものであり、
+異なる処理を持つオブジェクトを同一の操作で扱うことができる機能である。
+子クラスに「@Override」を付与して、呼び出し先でメソッドを呼ぶだけでできる。
+
+問2．
+・Animal.java
+package jp.co.aforce.sample.training20260428;
+ class Animal {
+
+	void makeSound() {
+		System.out.println("Some sound...");
+		
+	}	
+}
+
+class Dog extends Animal {
+	@Override
+	void makeSound() {
+		System.out.println("わんわん");
+		
+	}
+	
+}
+
+class Cat extends Animal {
+	@Override
+	void makeSound() {
+		System.out.println("にゃーにゃー");
+		
+	}
+	
+}
+
+・Main09.java
+package jp.co.aforce.sample.training20260428;
+
+public class Main09 {
+
+	public static void main(String[] args) {
+		Animal myAnimal1 = new Dog(); //親クラスの型でDogを使う
+		Animal myAnimal2 = new Cat(); //親クラスの型でCatを使う
+		
+		myAnimal1.makeSound();
+		myAnimal2.makeSound();
+	}
+	
+}
+
+問3．
+C. 変数の型はAnimalだが、中身はCatであり、Catのメソッドが呼ばれているから
+
+問4．
+C. Animal a = new Dog(); a.eat();
+
+問5．
+C. 処理の共通化と柔軟性が上がる
+
+
+第9章 クラスの基礎続き
+●インスタンス
+問2．
+package jp.co.aforce.sample.training20260428;
+
+public class Cat02 {
+
+	String name;
+	
+	void meow() {
+		
+		System.out.println(name + "が鳴いた！");
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		Cat02 cat2 = new Cat02();
+		
+		cat2.name = "たま";
+		
+		cat2.meow();
+		
+	}
+	
+}
+
+問3．
+・Car.java
+package jp.co.aforce.sample.training20260428;
+
+public class Car {
+
+	String model; //車種
+	int speed; //速度
+	
+	public Car(String model, int speed) {
+		this.model = model;
+		this.speed = speed;
+		
+	}
+	
+	public void displayInfo() {
+		
+		System.out.println("車種:" + model + "/速度:" + speed + "km/h");
+		
+	}
+	
+}
+
+・Main010.java
+package jp.co.aforce.sample.training20260428;
+
+public class Main010 {
+
+	public static void main(String[] args) {
+		
+		Car car1 = new Car("プリウス", 60);
+		
+		Car car2 = new Car("フェラーリ", 120);
+		
+		car1.displayInfo();
+		car2.displayInfo();
+		
+	}
+	
+}
+
+問4．
+・Rectangle.java
+package jp.co.aforce.sample.training20260428;
+
+public class Rectangle {
+
+	double width;
+	double height;
+
+	public Rectangle(double width, double height) {
+
+		this.width = width;
+		this.height = height;
+
+	}
+	
+	public double getArea() {
+		
+		return width * height;
+		
+	}
+
+}
+
+・Main011.java
+package jp.co.aforce.sample.training20260428;
+
+public class Main011 {
+
+	public static void main(String[] args) {
+		
+		//インスタンス化(幅5.0、高さ10.0を指定)
+		Rectangle rect = new Rectangle(5.0, 10.0);
+		
+		//面積を表示
+		System.out.println("面積は:" + rect.getArea());
+		
+	}
+	
+	
+}
+
+問5．
+・Robot.java
+package jp.co.aforce.sample.training20260428;
+
+public class Robot {
+
+	String name; //ロボットの名前
+	String action; //動作内容
+
+	public Robot(String name, String action) {
+
+		this.name = name;
+		this.action = action;
+
+	}
+
+	public void move() {
+
+		System.out.println(name + "は、" + action + "。");
+
+	}
+
+}
+
+・Main012.java
+package jp.co.aforce.sample.training20260428;
+
+public class Main012 {
+
+	public static void main(String[] args) {
+		
+		Robot cleaner = new Robot("ルンバ", "部屋をぐるぐる回って掃除した");
+		
+		
+		Robot asimo = new Robot("アシモ","階段を登った");
+		
+		Robot arm = new Robot("アーム君","高速で部分を組み立てた");
+		
+		cleaner.move();
+		asimo.move();
+		arm.move();
+		
+	}
+	
+}
+
+
+問6．
+途中まで
+
+
+
+
+
+第11章 名前空間とスコープ
+●名前空間
+問1．
+package com.example.utils;
+
+public class MathUtils {
+
+	//addメソッドを実装
+	public static int add(int a, int b) {
+		return a + b;
+		
+	}
+	
+}
+
+問2．
+package com.main01;
+
+import com.example.utils.MathUtils;
+
+public class MathMain001 {
+
+	public static void main(String[] args) {
+		int result = MathUtils.add(5,3);
+		System.out.println("結果は:" + result);
+		
+	}
+	
+}
+
+問3．
+・Student.java
+package com.example.school;
+
+public class Student {
+
+	public String name;
+	public int grade;
+	
+	//コンストラクタ
+	public Student(String name, int grade) {
+		this.name = name;
+		this.grade = grade;
+		
+	}
+	
+	//実行のためのメソッド
+	public void introduce() {
+		
+		System.out.println("名前は" + name + "です。学年は" + grade + "年生です。");
+		
+	}
+	
+	
+}
+
+・StudentApp01.java
+package com.example.app;
+
+import com.example.school.Student;
+
+public class StudentApp01 {
+
+	public static void main(String[] args) {
+		
+		Student s = new Student("田中",2);
+		
+		//実行のためのメソッドを呼び出し
+		s.introduce();
+		
+	}
+	
+	
+}
+
+問4．
+・Dog.java
+package com.example.animal;
+
+public class Dog {
+
+	
+	public void bark() {
+		System.out.println("animalクラスのDog");
+		
+	}
+	
+}
+
+・Dog.java
+package com.example.vehicle;
+
+public class Dog {
+
+	public void move() {
+		
+		System.out.println("vehicleクラスのDog");
+		
+	}
+	
+	
+}
+
+・MainApp.java
+package com.example.main02;
+
+import com.example.animal.Dog;
+
+public class MainApp {
+
+	public static void main(String[] args) {
+		
+		//importした方のDog
+		Dog aDog = new Dog();
+		
+		//importしていない方のDogはフルネームで書く
+		com.example.vehicle.Dog vDog = new com.example.vehicle.Dog();
+		
+		//それぞれを実行
+		aDog.bark();
+		vDog.move();
+		
+		
+	}
+	
+	
+}
+
+問5．
+・Helper.java
+package com.example.utils;
+
+public class Helper {
+
+	void showMessage() {
+		
+		System.out.println("Helperのメッセージです");
+		
+	}
+	
+	
+}
+
+・Test.java
+package com.example.utils;
+
+public class Test {
+
+	public static void main(String[] args) {
+		Helper h = new Helper();
+		//showMessageのメソッドを作る
+		h.showMessage();
+		
+		
+	}
+	
+	
+}
+
+・Main013.java
+package com.example.app;
+
+import com.example.utils.Helper;
+
+public class Main013 {
+
+	public static void main(String[] args) {
+		
+		Helper h = new Helper();
+		
+		h.showMessage();
+		
+	}
+	
+	
+}
+➡エラー
+
