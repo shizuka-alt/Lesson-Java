@@ -1,0 +1,284 @@
+4月30日
+
+Exception：例外を知らせる仕組み。プログラムを止めてしまう。
+try-catch：エラー(例外)が起きてもプログラムが止まらずに続く。
+【CheckedException(検査例外)の対処として書く】
+finalliy；エラーが起きても起きなくても最後に必ず実行される処理を記載
+throw；わざとエラーを発生させて、処理を制御
+
+ArithmeticException：0で割ったときに発生するエラー
+
+
+第14章 例外
+問1．
+package jp.co.aforce.sample.training20260430;
+
+import java.util.Scanner;
+
+public class ExceptionPractice01 {
+
+	public static void main(String[] args) {
+		
+		//ユーザに入力してもらう➡scanner
+		//System.in➡キーボード入力
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("整数を入力してください:");
+		
+		//nextInt()メソッドで文字列として入力を受け取る
+		String input = scanner.nextLine();
+		
+		try {
+			//文字列を整数に変換（ここで失敗するとNumberFormatExceptionが発生）
+			int number = Integer.parseInt(input);
+			
+			
+			//2で割った結果を表示。
+			System.out.println("結果: " + (number / 2));
+			
+		} catch (NumberFormatException e) {
+			//NumberFormatExceptionで入力が整数ではないときをキャッチする
+			System.out.println("エラー:整数を入力してください。");
+			
+		} finally {
+			scanner.close();
+		}
+		
+		
+	}
+	
+	
+}
+
+問2．
+例外が発生しました: / by zero
+プログラム終了
+
+問3．
+B. NullPointerException が発生しました
+
+問4．
+B. try → catch → finally → プログラム終了 の順に実行される
+
+問5．
+package jp.co.aforce.sample.training20260430;
+
+public class ExceptionPractice04 {
+
+	public static void main(String[] args) {
+		
+		int a = 10;
+		int b = 0;
+		
+		try {
+			int result = a / b;
+			System.out.println("結果: " + result);
+		} catch (ArithmeticException e) {
+			System.out.println("0で割ることはできません。");
+		}
+		System.out.println("プログラムを終了します。");
+		
+	}
+	
+}
+
+問6．
+
+package jp.co.aforce.sample.training20260430;
+
+public class ExceptionPractice05 {
+//問6用
+	public static void main(String[] args) {
+		try {
+			int[] nums = {1, 2, 3};
+			System.out.println(nums[3]);
+			
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("配列の範囲外です。" + e.getMessage());
+			
+		}
+		
+		System.out.println("プログラムは継続します。");
+		
+	}
+	
+}
+
+問7．
+数値変換と0除算の両方を例外処理する問題。
+入力された文字列を数値に変換し、その数値で10を割って結果を表示してください。
+数値でない文字列が入力された場合や、0が入力された場合の例外も適切に処理してください。
+
+
+★★★
+
+第15章 スレッド
+問1．
+・MyRunnable.java
+package jp.co.aforce.sample.training20260430;
+
+public class MyRunnable implements Runnable{
+
+	public void run() {
+		System.out.println("Hello from a thread!");
+		
+		
+	}
+	
+}
+
+・Example01.java
+package jp.co.aforce.sample.training20260430;
+
+public class Example01 {
+
+	public static void main(String[] args) {
+		Thread t1 = new Thread(new MyRunnable());
+		t1.start();
+//		System.out.println("スレッドを終了します。");
+		
+	}
+	
+	
+}
+
+問2．
+・Counter.java
+package jp.co.aforce.sample.training20260430;
+
+public class Counter {
+
+	//変数(データ)を置く
+	private int count = 0;
+
+	//increment()メソッド
+	public synchronized void increment() {
+		count++;
+	}
+
+	//他のメソッド。外側から中身を見るためのメソッド
+	public int getCount() {
+		return count;
+	}
+	
+//	public static void main(String[] args) {
+//		Counter c = new Counter();
+//		c.increment();
+//		c.increment();
+//		//2回increment()を呼んでいるからcount++で2と表示される。
+//		System.out.println("カウントの結果:" + c.getCount());
+//		
+//	}
+
+}
+
+問3．
+A. synchronizedキーワードを使用する
+
+synchronizedなメソッド：あるスレッドが実行している間、他のスレッドは実行できないメソッドになる。
+
+問4．
+C. 2000
+
+問5．
+A. ReentrantLockは、再入可能なロックを提供する
+
+再入可能：プログラムや関数が実行中に、別のタスクや割り込みによって再度呼び出されても、
+データが干渉せず安全に並行処理できる性質。
+
+問6．
+A. Threadクラスを継承する、B. Runnableインターフェースを実装する
+
+問7．
+D. Hello from main\nHello from MyThread
+
+問8．
+D. 以上すべて
+
+★★★
+
+第16章
+問1．
+package jp.co.aforce.sample.training20260430;
+
+import java.time.LocalDate;
+
+public class Library {
+
+	public static void main(String[] args) {
+		LocalDate today = LocalDate.now();
+		System.out.println("今日:" + today);
+		
+		LocalDate nextWeek = today.plusWeeks(1);
+		System.out.println("1週間後の日付:" + nextWeek);
+	}
+	
+}
+
+問2．
+package jp.co.aforce.sample.training20260430;
+
+public class Library02 {
+
+	public static void main(String[] args) {
+		int value = -10;
+		
+		//abs()関数は0からの距離【絶対値】を返す。
+		int result = Math.abs(value);
+		
+		System.out.println("-10の絶対値は:" + result);
+	}
+	
+}
+
+問3．
+
+package jp.co.aforce.sample.training20260430;
+
+import java.util.Arrays;
+
+public class Library03 {
+
+	public static void main(String[] args) {
+		int[] numbers = {5, 3, 8, 1};
+		
+		//sort()で昇順にする
+		Arrays.sort(numbers);
+		
+		//toStringで表示できる文字にする(これをしないと元の住所のまま表示されてしまう)
+		System.out.println(Arrays.toString(numbers));
+		
+	}
+	
+}
+
+Arraysクラス：固定。一度決めたら変えられない。
+　int[] arr = new int[5];
+Arrayリスト：可変。決めた後再度追加したり削除したりできる。
+　ArrayList<Integer> list = new ArrayList<>();
+
+問4．
+
+package jp.co.aforce.sample.training20260430;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class Library04 {
+
+	public static void main(String[] args) {
+		
+		LocalDateTime now = LocalDateTime.now();
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年M月d日 HH時mm分");
+		
+		String formattedDate = now.format(formatter);
+		System.out.println(formattedDate);
+		
+		
+	}
+	
+}
+
+
