@@ -1,0 +1,179 @@
+2026年5月1日 単元テスト
+
+問7．
+・Test0501Part04
+
+package jp.co.aforce.sample.training20260501;
+
+import java.util.Scanner;
+
+public class Test0501Part04 {
+
+	public static void main(String[] args) {
+		
+		Scanner age = new Scanner(System.in);
+		
+		System.out.println("年齢を入力してください:");
+		
+		int age = Scanner.nextInt();
+		
+		if(age <= -1) {
+			System.out.println("正の数で入力してください。");
+			
+		}else if (age >=120) {
+			System.out.println("120歳未満の数字で入力してください。");
+			
+		}else if (age >=0 && age <= 3) {
+			System.out.println("無料");
+			
+		}else if (age >= 4 && age <= 12) {
+			System.out.println("500円");
+			
+		}else if (age >= 13 && age <= 17) {
+			System.out.println("800円");
+			
+		}else if (age >= 18 && age <= 59) {
+			System.out.println("1200円");
+			
+		}else if (age >= 60) {
+			System.out.println("700円");
+			
+		}
+		
+	}
+	
+	
+}
+
+問8．
+・Test0501Part05
+package jp.co.aforce.sample.training20260501;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Test0501Part05 {
+
+	public static void main(String[] args) {
+		List<String> fruitsList = new ArrayList<String>();
+		
+		fruitsList.add("リンゴ");
+		fruitsList.add("バナナ");
+		fruitsList.add("さくらんぼ");
+		
+		System.out.println(fruitsList);
+		
+		fruitsList.remove("バナナ");
+		
+		System.out.println(fruitsList);
+		
+		fruitsList.add("オレンジ");
+		
+		System.out.println(fruitsList);
+		
+	}
+	
+	
+}
+
+問9．
+・Test0501Part06
+package jp.co.aforce.sample.training20260501;
+
+public class Test0501Part06 {
+
+	public static void main(String[] args) {
+		
+		//商品の単価を入力(実数)
+		Scanner height = new Scanner(System.in);
+		
+		System.out.println("商品の単価を入力してください:");
+		
+		int height = Scanner.nextInt();
+		
+		//例
+//		int height = 1100;
+		
+		
+		//購入個数を入力(整数)
+		Scanner buy = new Scanner(System.in);
+		
+		System.out.println("購入個数を入力してください:");
+		
+		int buy = Scanner.nextInt();
+		
+		//例
+//		int buy = 6;
+		
+		//単価と個数をもとに計算
+		//消費税は10％
+		double real = height * buy;
+		double tax = real * 0.10;
+		double total = real + tax;
+		
+		System.out.println("割引前の値段(税込み):" + total + "円");
+		
+		
+		//購入金額が5000円以上で、合計金額から5％割引
+		//購入金額が10000円以上で、合計金額からさらに5％割引
+		if (total >= 5000) {
+			
+			double persent = total * 0.05;
+			total = total - persent;
+			System.out.println("5％割引の値段:" + total);
+			
+		} else if (total >= 10000) {
+			
+			double persent = total * 0.10;
+			total = total - persent;
+			System.out.println("10％割引の値段:" + total);
+			
+		}
+		
+		
+		//購入個数が3個以上の場合、合計金額から1個当たり50円割引
+		//購入個数が5個以上の場合、合計金額から1個当たり100円割引
+		if (buy >= 3 && buy < 5) {
+			
+			//totalからbuy回50円を引き算する
+			for (int i = 0; i < buy; i++) {
+				
+				total = total - 50;
+				System.out.println(total);
+				
+			}
+			
+		} else if (buy >= 5) {
+			
+			//totalからさらにbuy回50円を引き算する
+			for (int i = 0; i < buy; i++) {
+				
+				total = total - 50;
+				System.out.println(total);
+			
+		}
+		
+		
+		System.out.println();
+		
+		
+//		switch (buy) {
+//			
+//		case(3)
+//			//totalからbuy回50円を引き算する
+//			for (int i = 0; i < buy; i++) {
+//				
+//				total = total - 50;
+//				System.out.println(total);
+//				
+//			}
+//			
+//		}
+		
+	}
+	
+	
+	
+	
+}
+
